@@ -73,3 +73,6 @@ plt.ylabel("Count")
 plt.savefig("failure_distribution.png")
 
 print("Graph saved successfully")
+
+df.to_csv("processed_data.csv", index=False)
+print("Processed dataset saved")
