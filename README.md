@@ -1,25 +1,48 @@
 # Predictive Maintenance (IoT Edge AI)
 
 ## Project Overview
-This project focuses on predicting machine failures using IoT sensor telemetry data and contextual environmental features.
+Predictive maintenance system using IoT telemetry and contextual environmental data to predict machine failures.
 
 ## Dataset
 AI4I Predictive Maintenance Dataset
 
+## Dataset Summary
+- Total Records: 10000
+- Features: 14
+- Target Variable: Machine Failure
+- Missing Values: 0
+
 ## Week 1 Progress
 - Dataset acquisition
 - Data ingestion
-- Initial exploratory analysis
+- Exploratory data analysis
 - Sensor telemetry understanding
+- Initial feature engineering
 
 ## Week 2 Progress
-- Feature engineering
-- Rolling statistical features
-- Contextual data fusion design
+- Contextual feature simulation
+- Data fusion pipeline
 - Correlation analysis
+- Statistical feature generation
 
-## Upcoming Tasks
+## Features Engineered
+- Temperature Difference
+- Torque Speed Ratio
+- Rolling Mean Features
+- Ambient Temperature
+- Load Density
+
+## Upcoming Work
 - SMOTE implementation
-- LightGBM modeling
+- LightGBM model training
 - Cross-validation
-- Noise sensitivity testing
+- Noise sensitivity analysis
+- Threshold tuning
+
+## Tech Stack
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Git & GitHub
