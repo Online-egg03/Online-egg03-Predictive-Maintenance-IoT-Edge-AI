@@ -48,3 +48,14 @@ df["ambient_temperature"] = np.random.normal(30, 5, len(df))
 df["load_density"] = np.random.uniform(0.3, 1.0, len(df))
 
 print("Contextual features added")
+
+# Correlation with target
+
+corr = df.corr(numeric_only=True)
+
+print("\nTop Features Related to Machine Failure:")
+print(
+    corr["Machine failure"]
+    .sort_values(ascending=False)
+    .head(10)
+)
