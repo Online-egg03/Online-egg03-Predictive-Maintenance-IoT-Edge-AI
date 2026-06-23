@@ -76,3 +76,8 @@ print("Graph saved successfully")
 
 df.to_csv("processed_data.csv", index=False)
 print("Processed dataset saved")
+
+import matplotlib.pyplot as plt
+
+df["Machine failure"].value_counts().plot(kind="bar")
+plt.savefig("failure_distribution.png")
