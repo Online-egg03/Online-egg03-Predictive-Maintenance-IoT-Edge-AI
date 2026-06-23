@@ -26,3 +26,18 @@ df["torque_speed_ratio"] = (
 )
 
 print("\nNew Features Created Successfully")
+
+print("\nMachine Failure Distribution:")
+print(df["Machine failure"].value_counts())
+
+df["temp_difference"] = (
+    df["Process temperature [K]"]
+    - df["Air temperature [K]"]
+)
+
+df["torque_speed_ratio"] = (
+    df["Torque [Nm]"]
+    / df["Rotational speed [rpm]"]
+)
+
+print("\nFeature Engineering Completed")
