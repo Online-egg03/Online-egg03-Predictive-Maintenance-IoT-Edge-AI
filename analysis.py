@@ -81,3 +81,5 @@ import matplotlib.pyplot as plt
 
 df["Machine failure"].value_counts().plot(kind="bar")
 plt.savefig("failure_distribution.png")
+
+print("Project progress: Week 1 and Week 2 tasks completed")
