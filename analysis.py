@@ -59,3 +59,17 @@ print(
     .sort_values(ascending=False)
     .head(10)
 )
+
+import matplotlib.pyplot as plt
+
+failure_counts = df["Machine failure"].value_counts()
+
+failure_counts.plot(kind="bar")
+
+plt.title("Machine Failure Distribution")
+plt.xlabel("Failure")
+plt.ylabel("Count")
+
+plt.savefig("failure_distribution.png")
+
+print("Graph saved successfully")
