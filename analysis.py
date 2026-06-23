@@ -41,3 +41,10 @@ df["torque_speed_ratio"] = (
 )
 
 print("\nFeature Engineering Completed")
+
+import numpy as np
+
+df["ambient_temperature"] = np.random.normal(30, 5, len(df))
+df["load_density"] = np.random.uniform(0.3, 1.0, len(df))
+
+print("Contextual features added")
