@@ -46,3 +46,6 @@ AI4I Predictive Maintenance Dataset
 - Matplotlib
 - Scikit-learn
 - Git & GitHub
+
+## Current Status
+EDA and feature engineering completed.
