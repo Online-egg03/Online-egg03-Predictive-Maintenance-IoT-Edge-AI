@@ -126,3 +126,26 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, pred)
 
 print(cm)
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+# Encoding categorical column
+le = LabelEncoder()
+df["Type"] = le.fit_transform(df["Type"])
+
+# Features and Target
+X = df.drop(columns=["Machine failure"])
+y = df["Machine failure"]
+
+# Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+
+print("\nTrain Shape:", X_train.shape)
+print("Test Shape:", X_test.shape)
