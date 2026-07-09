@@ -85,3 +85,21 @@ plt.savefig("failure_distribution.png")
 print("Project progress: Week 1 and Week 2 tasks completed")
 
 print("Data fusion pipeline ready for modeling stage")
+
+from sklearn.model_selection import train_test_split
+
+X = df.drop(columns=["Machine failure"])
+X = pd.get_dummies(X)
+
+y = df["Machine failure"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+
+print("Train Shape:", X_train.shape)
+print("Test Shape:", X_test.shape)
