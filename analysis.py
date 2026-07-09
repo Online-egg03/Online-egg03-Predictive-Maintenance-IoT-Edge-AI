@@ -114,3 +114,7 @@ model.fit(X_train, y_train)
 pred = model.predict(X_test)
 
 print("Accuracy:", accuracy_score(y_test, pred))
+
+from sklearn.metrics import classification_report
+
+print(classification_report(y_test, pred))
