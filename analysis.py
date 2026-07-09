@@ -146,3 +146,18 @@ cm = confusion_matrix(y_test, pred)
 
 print("\nConfusion Matrix")
 print(cm)
+
+import pandas as pd
+
+importance = pd.DataFrame({
+    "Feature": X_train.columns,
+    "Importance": model.feature_importances_
+})
+
+importance = importance.sort_values(
+    by="Importance",
+    ascending=False
+)
+
+print("\nTop 10 Important Features")
+print(importance.head(10))
