@@ -115,6 +115,14 @@ pred = model.predict(X_test)
 
 print("Accuracy:", accuracy_score(y_test, pred))
 
+
 from sklearn.metrics import classification_report
 
 print(classification_report(y_test, pred))
+
+
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_test, pred)
+
+print(cm)
