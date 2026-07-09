@@ -139,3 +139,10 @@ from sklearn.metrics import classification_report
 
 print("\nClassification Report")
 print(classification_report(y_test, pred))
+
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_test, pred)
+
+print("\nConfusion Matrix")
+print(cm)
