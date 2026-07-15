@@ -281,3 +281,18 @@ plt.savefig("precision_recall_curve.png")
 
 print("Precision-Recall curve saved.")
 
+best_threshold = 0.40
+
+custom_predictions = (
+    probabilities >= best_threshold
+).astype(int)
+
+threshold_f1 = f1_score(
+    y_test,
+    custom_predictions,
+    average="macro"
+)
+
+print("Threshold:", best_threshold)
+print("Macro F1 after Threshold Tuning:", threshold_f1)
+
