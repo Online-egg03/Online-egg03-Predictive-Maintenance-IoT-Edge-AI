@@ -161,3 +161,63 @@ importance = importance.sort_values(
 
 print("\nTop 10 Important Features")
 print(importance.head(10))
+
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import f1_score
+from imblearn.over_sampling import SMOTE
+from lightgbm import LGBMClassifier
+import numpy as np
+
+# Remove non-numeric identifier columns
+X = df.drop(columns=["Machine failure", "Product ID"])
+X = pd.get_dummies(X)
+
+y = df["Machine failure"]
+
+skf = StratifiedKFold(
+    n_splits=5,
+    shuffle=True,
+    random_state=42
+)
+
+scores = []
+
+fold = 1
+
+for train_index, test_index in skf.split(X, y):
+
+    X_train = X.iloc[train_index]
+    X_test = X.iloc[test_index]
+
+    y_train = y.iloc[train_index]
+    y_test = y.iloc[test_index]
+
+    smote = SMOTE(random_state=42)
+
+    X_train_smote, y_train_smote = smote.fit_resample(
+        X_train,
+        y_train
+    )
+
+    model = LGBMClassifier(
+        random_state=42,
+        n_estimators=100
+    )
+
+    model.fit(X_train_smote, y_train_smote)
+
+    pred = model.predict(X_test)
+
+    score = f1_score(
+        y_test,
+        pred,
+        average="macro"
+    )
+
+    print(f"Fold {fold} Macro F1 : {score:.3f}")
+
+    scores.append(score)
+
+    fold += 1
+
+print("\nAverage Macro F1 :", np.mean(scores))
