@@ -48,4 +48,17 @@ AI4I Predictive Maintenance Dataset
 - Git & GitHub
 
 ## Current Status
-EDA and feature engineering completed.
+Data preprocessing, feature engineering, contextual data fusion, and initial machine learning pipeline have been completed.
+
+## Week 3 Progress
+- Implemented 5-Fold Stratified Cross Validation.
+- Applied SMOTE within training folds to handle class imbalance.
+- Trained a LightGBM classifier.
+- Evaluated performance using Macro F1 Score.
+
+## Future Enhancements
+- SMOTE for handling class imbalance.
+- LightGBM model implementation.
+- Cross-validation and hyperparameter tuning.
+- Noise sensitivity analysis.
+- Threshold optimization.
