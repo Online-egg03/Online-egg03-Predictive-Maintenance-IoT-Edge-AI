@@ -172,6 +172,12 @@ import numpy as np
 X = df.drop(columns=["Machine failure", "Product ID"])
 X = pd.get_dummies(X)
 
+# Clean feature names for LightGBM
+X.columns = (
+    X.columns
+    .str.replace(r"[^A-Za-z0-9_]", "_", regex=True)
+)
+
 y = df["Machine failure"]
 
 skf = StratifiedKFold(
