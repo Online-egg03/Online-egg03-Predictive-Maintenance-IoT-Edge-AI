@@ -227,3 +227,36 @@ for train_index, test_index in skf.split(X, y):
     fold += 1
 
 print("\nAverage Macro F1 :", np.mean(scores))
+
+X_test_noisy = X_test.copy()
+
+numeric_columns = [
+    "Air_temperature__K_",
+    "Process_temperature__K_",
+    "Rotational_speed__rpm_",
+    "Torque__Nm_",
+    "Tool_wear__min_",
+    "temp_difference",
+    "torque_speed_ratio",
+    "ambient_temperature",
+    "load_density"
+]
+
+for col in numeric_columns:
+    if col in X_test_noisy.columns:
+        X_test_noisy[col] += np.random.normal(
+            0,
+            0.01,
+            len(X_test_noisy)
+        )
+
+
+pred_noisy = model.predict(X_test_noisy)
+
+noise_f1 = f1_score(
+    y_test,
+    pred_noisy,
+    average="macro"
+)
+
+print("Macro F1 after Noise:", noise_f1)
