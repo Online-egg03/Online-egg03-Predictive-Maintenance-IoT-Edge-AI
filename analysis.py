@@ -260,3 +260,24 @@ noise_f1 = f1_score(
 )
 
 print("Macro F1 after Noise:", noise_f1)
+
+from sklearn.metrics import precision_recall_curve
+import matplotlib.pyplot as plt
+
+probabilities = model.predict_proba(X_test)[:, 1]
+
+precision, recall, thresholds = precision_recall_curve(
+    y_test,
+    probabilities
+)
+
+plt.figure(figsize=(6,4))
+plt.plot(recall, precision)
+plt.xlabel("Recall")
+plt.ylabel("Precision")
+plt.title("Precision-Recall Curve")
+plt.grid(True)
+plt.savefig("precision_recall_curve.png")
+
+print("Precision-Recall curve saved.")
+
