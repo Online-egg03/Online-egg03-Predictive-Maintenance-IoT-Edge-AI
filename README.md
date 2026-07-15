@@ -56,6 +56,13 @@ Data preprocessing, feature engineering, contextual data fusion, and initial mac
 - Trained a LightGBM classifier.
 - Evaluated performance using Macro F1 Score.
 
+## Week 4 Progress
+
+- Synthetic noise injected into test data.
+- Model robustness evaluated.
+- Precision-Recall Curve generated.
+- Decision threshold optimized.
+
 ## Future Enhancements
 - SMOTE for handling class imbalance.
 - LightGBM model implementation.
