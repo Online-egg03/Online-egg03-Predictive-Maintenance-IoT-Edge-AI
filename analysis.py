@@ -296,3 +296,15 @@ threshold_f1 = f1_score(
 print("Threshold:", best_threshold)
 print("Macro F1 after Threshold Tuning:", threshold_f1)
 
+import joblib
+
+joblib.dump(model, "model.pkl")
+
+print("\n✅ Model saved successfully as model.pkl")
+
+# Save training feature names
+import joblib
+
+joblib.dump(X.columns.tolist(), "feature_columns.pkl")
+
+print("✅ Feature columns saved successfully.")
